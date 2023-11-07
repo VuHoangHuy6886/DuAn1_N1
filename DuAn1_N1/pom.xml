@@ -12,4 +12,12 @@
         <exec.mainClass>com.mycompany.phanmembansua.PhanMemBanSua</exec.mainClass>
     </properties>
     <name>DuAn1_N1</name>
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc -->
+        <dependency>
+            <groupId>com.microsoft.sqlserver</groupId>
+            <artifactId>mssql-jdbc</artifactId>
+            <version>11.2.3.jre17</version>
+        </dependency>
+    </dependencies>
 </project>
