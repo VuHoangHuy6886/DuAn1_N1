@@ -13,7 +13,7 @@ import model.NhaSanXuat;
  */
 public interface NhaSanXuatService {
 
-    List<NhaSanXuat> NSX();
+    List<NhaSanXuat> listsService();
 
     String them(NhaSanXuat nsx);
 
