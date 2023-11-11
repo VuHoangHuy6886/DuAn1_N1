@@ -9,76 +9,63 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
-import model.SanPham;
+import model.NSX;
 import repository.CrudfullTable;
 
 /**
  *
  * @author vuhoa
  */
-public class SanPhamServiceImpl implements CrudfullTable<SanPham> {
+public class NSXImpl implements CrudfullTable<NSX> {
 
     @Override
-    public List<SanPham> listAll() {
-        List<SanPham> listSP = new ArrayList<>();
+    public List<NSX> listAll() {
+        List<NSX> listNSX = new ArrayList<>();
         try (Connection con = Database.JdbcUtil.getConnection()) {
-            String sql = "Select * from SanPham";
+            String sql = "Select * from NhaSanXuat";
             PreparedStatement pre = con.prepareStatement(sql);
             ResultSet rs = pre.executeQuery();
             while (rs.next()) {
-                SanPham sp = new SanPham();
-                sp.setId(rs.getInt("Id_SP"));
-                sp.setMa(rs.getString("MaSP"));
-                sp.setTen(rs.getString("TenSP"));
-                sp.setGiaVon(rs.getFloat("GiaVon"));
-                sp.setNgayTao(rs.getDate("NgayTao"));
-                sp.setNgaySua(rs.getDate("NgaySua"));
-                listSP.add(sp);
+                NSX nsx = new NSX();
+                nsx.setId(rs.getInt("Id_NSX"));
+                nsx.setMa(rs.getString("MaNSX"));
+                nsx.setTen(rs.getString("TenNSX"));
+                nsx.setQuocGia(rs.getString("QuocGia"));
+                listNSX.add(nsx);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return listSP;
+        return listNSX;
     }
 
     @Override
-    public String them(SanPham t) {
+    public String them(NSX t) {
         try (Connection con = Database.JdbcUtil.getConnection()) {
-            String sql = " insert into SanPham(MaSP, TenSP, GiaVon, NgayTao, NgaySua) values (?,?,?,?,?)";
+            String sql = "  INSERT INTO NhaSanXuat(MaNSX,TenNSX,QuocGia) values (?,?,?) ";
             PreparedStatement pre = con.prepareStatement(sql);
             pre.setString(1, t.getMa());
             pre.setString(2, t.getTen());
-            pre.setFloat(3, t.getGiaVon());
-            pre.setDate(4, t.getNgayTao());
-            pre.setDate(5, t.getNgaySua());
+            pre.setString(3, t.getQuocGia()); 
             pre.executeUpdate();
-//            while (rs.next()) {
-//                SanPham sp = new SanPham();
-//                sp.setId(rs.getInt("Id_SP"));
-//                sp.setMa(rs.getString("MaSP"));
-//                sp.setTen(rs.getString("TenSP"));
-//                sp.setGiaVon(rs.getFloat("GiaVon"));
-//                sp.setNgayTao(rs.getDate("NgayTao"));
-//                sp.setNgaySua(rs.getDate("NgaySua"));
-//            }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return "thanh cong";
+        return "Thanh cong";
     }
 
     @Override
-    public String Sua(SanPham t) {
+    public String Sua(NSX t) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public String xoa(SanPham t) {
+    public String xoa(NSX t) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public List<SanPham> serch(SanPham t) {
+    public List<NSX> serch(NSX t) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
