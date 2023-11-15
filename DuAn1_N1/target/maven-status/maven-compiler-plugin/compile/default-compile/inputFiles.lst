@@ -11,7 +11,10 @@ D:\DuAn1\DuAn1_N1\src\main\java\controler\LoaiSanPhamImpl.java
 D:\DuAn1\DuAn1_N1\src\main\java\model\LoaiSanPham.java
 D:\DuAn1\DuAn1_N1\src\main\java\repository\SanPhamService.java
 D:\DuAn1\DuAn1_N1\src\main\java\view\ViewLSP.java
+D:\DuAn1\DuAn1_N1\src\main\java\view\BanHang.java
 D:\DuAn1\DuAn1_N1\src\main\java\Database\JdbcUtil.java
+D:\DuAn1\DuAn1_N1\src\main\java\view\SanPham.java
+D:\DuAn1\DuAn1_N1\src\main\java\view\ViewMain.java
 D:\DuAn1\DuAn1_N1\src\main\java\model\ChiTietSanPham.java
 D:\DuAn1\DuAn1_N1\src\main\java\repository\CrudfullTable.java
 D:\DuAn1\DuAn1_N1\src\main\java\controler\SanPhamServiceImpl.java

@@ -13,38 +13,40 @@ import java.sql.Date;
 public class ChiTietSanPham {
 
     private int id;
-    private String ma;
-    private String ten;
-    private String loaiSP;
-    private String tenSanXuat;
-    private String quocGia;
-    private String anh;
+    private String maSPCT;
+    private String tenSanPham;
+    private String tenLoaiSP;
+    private String tenDongSanPham;
     private Date hSD;
+    private String XuatSu;
     private int soLuongTon;
-    private float giaVon;
-    private float giaBan;
+    private float donGia;
+    private String khoiLuong;
+    private String donViTinh;
+    private String maQr;
     private String ghiChu;
-    private String maQR;
     private String trangThai;
+    private String anh;
 
     public ChiTietSanPham() {
     }
 
-    public ChiTietSanPham(int id, String ma, String ten, String loaiSP, String tenSanXuat, String quocGia, String anh, Date hSD, int soLuongTon, float giaVon, float giaBan, String ghiChu, String maQR, String trangThai) {
+    public ChiTietSanPham(int id, String maSPCT, String tenSanPham, String tenLoaiSP, String tenDongSanPham, Date hSD, String XuatSu, int soLuongTon, float donGia, String khoiLuong, String donViTinh, String maQr, String ghiChu, String trangThai, String anh) {
         this.id = id;
-        this.ma = ma;
-        this.ten = ten;
-        this.loaiSP = loaiSP;
-        this.tenSanXuat = tenSanXuat;
-        this.quocGia = quocGia;
-        this.anh = anh;
+        this.maSPCT = maSPCT;
+        this.tenSanPham = tenSanPham;
+        this.tenLoaiSP = tenLoaiSP;
+        this.tenDongSanPham = tenDongSanPham;
         this.hSD = hSD;
+        this.XuatSu = XuatSu;
         this.soLuongTon = soLuongTon;
-        this.giaVon = giaVon;
-        this.giaBan = giaBan;
+        this.donGia = donGia;
+        this.khoiLuong = khoiLuong;
+        this.donViTinh = donViTinh;
+        this.maQr = maQr;
         this.ghiChu = ghiChu;
-        this.maQR = maQR;
         this.trangThai = trangThai;
+        this.anh = anh;
     }
 
     public int getId() {
@@ -55,52 +57,36 @@ public class ChiTietSanPham {
         this.id = id;
     }
 
-    public String getMa() {
-        return ma;
+    public String getMaSPCT() {
+        return maSPCT;
     }
 
-    public void setMa(String ma) {
-        this.ma = ma;
+    public void setMaSPCT(String maSPCT) {
+        this.maSPCT = maSPCT;
     }
 
-    public String getTen() {
-        return ten;
+    public String getTenSanPham() {
+        return tenSanPham;
     }
 
-    public void setTen(String ten) {
-        this.ten = ten;
+    public void setTenSanPham(String tenSanPham) {
+        this.tenSanPham = tenSanPham;
     }
 
-    public String getLoaiSP() {
-        return loaiSP;
+    public String getTenLoaiSP() {
+        return tenLoaiSP;
     }
 
-    public void setLoaiSP(String loaiSP) {
-        this.loaiSP = loaiSP;
+    public void setTenLoaiSP(String tenLoaiSP) {
+        this.tenLoaiSP = tenLoaiSP;
     }
 
-    public String getTenSanXuat() {
-        return tenSanXuat;
+    public String getTenDongSanPham() {
+        return tenDongSanPham;
     }
 
-    public void setTenSanXuat(String tenSanXuat) {
-        this.tenSanXuat = tenSanXuat;
-    }
-
-    public String getQuocGia() {
-        return quocGia;
-    }
-
-    public void setQuocGia(String quocGia) {
-        this.quocGia = quocGia;
-    }
-
-    public String getAnh() {
-        return anh;
-    }
-
-    public void setAnh(String anh) {
-        this.anh = anh;
+    public void setTenDongSanPham(String tenDongSanPham) {
+        this.tenDongSanPham = tenDongSanPham;
     }
 
     public Date gethSD() {
@@ -111,6 +97,14 @@ public class ChiTietSanPham {
         this.hSD = hSD;
     }
 
+    public String getXuatSu() {
+        return XuatSu;
+    }
+
+    public void setXuatSu(String XuatSu) {
+        this.XuatSu = XuatSu;
+    }
+
     public int getSoLuongTon() {
         return soLuongTon;
     }
@@ -119,20 +113,36 @@ public class ChiTietSanPham {
         this.soLuongTon = soLuongTon;
     }
 
-    public float getGiaVon() {
-        return giaVon;
+    public float getDonGia() {
+        return donGia;
     }
 
-    public void setGiaVon(float giaVon) {
-        this.giaVon = giaVon;
+    public void setDonGia(float donGia) {
+        this.donGia = donGia;
     }
 
-    public float getGiaBan() {
-        return giaBan;
+    public String getKhoiLuong() {
+        return khoiLuong;
     }
 
-    public void setGiaBan(float giaBan) {
-        this.giaBan = giaBan;
+    public void setKhoiLuong(String khoiLuong) {
+        this.khoiLuong = khoiLuong;
+    }
+
+    public String getDonViTinh() {
+        return donViTinh;
+    }
+
+    public void setDonViTinh(String donViTinh) {
+        this.donViTinh = donViTinh;
+    }
+
+    public String getMaQr() {
+        return maQr;
+    }
+
+    public void setMaQr(String maQr) {
+        this.maQr = maQr;
     }
 
     public String getGhiChu() {
@@ -143,14 +153,6 @@ public class ChiTietSanPham {
         this.ghiChu = ghiChu;
     }
 
-    public String getMaQR() {
-        return maQR;
-    }
-
-    public void setMaQR(String maQR) {
-        this.maQR = maQR;
-    }
-
     public String getTrangThai() {
         return trangThai;
     }
@@ -158,4 +160,13 @@ public class ChiTietSanPham {
     public void setTrangThai(String trangThai) {
         this.trangThai = trangThai;
     }
+
+    public String getAnh() {
+        return anh;
+    }
+
+    public void setAnh(String anh) {
+        this.anh = anh;
+    }
+
 }
