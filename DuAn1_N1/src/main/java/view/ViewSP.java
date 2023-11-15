@@ -35,7 +35,7 @@ public class ViewSP extends javax.swing.JFrame {
         dtm.setRowCount(0);
         for (SanPham sp : lists) {
             dtm.addRow(new Object[]{
-                sp.getMa(), sp.getTen(), sp.getGiaVon(), sp.getNgayTao(), sp.getNgaySua()
+                sp.getMa(), sp.getTen(), sp.getNgayTao()
             });
         }
     }
@@ -44,11 +44,9 @@ public class ViewSP extends javax.swing.JFrame {
         SanPham sp = lists.get(index);
         txtMa.setText(sp.getMa());
         txtTen.setText(sp.getTen());
-        txtGiaVon.setText(String.valueOf(sp.getGiaVon()));
         txtNgayTao.setText(String.valueOf(sp.getNgayTao()));
-        txtNgaySua.setText(String.valueOf(sp.getNgaySua()));
         id = sp.getId();
-        System.out.println("vi tri id la : "+id);
+        System.out.println("vi tri id la : " + id);
         return sp;
 
     }
@@ -56,10 +54,14 @@ public class ViewSP extends javax.swing.JFrame {
     public SanPham daTa() {
         String ma = txtMa.getText();
         String ten = txtTen.getText();
-        float gia = Float.parseFloat(txtGiaVon.getText());
-        Date ngayTao = Date.valueOf(txtNgayTao.getText());
-        Date ngaySua = Date.valueOf(txtNgaySua.getText());
-        SanPham sp = new SanPham(WIDTH, ma, ten, gia, ngayTao, ngaySua);
+        String ngayTaoText = txtNgayTao.getText();
+        Date ngayTao = null;
+        if (!ngayTaoText.isEmpty()) {
+            ngayTao = Date.valueOf(ngayTaoText);
+        } else {
+            JOptionPane.showMessageDialog(this, "lỗi");
+        }
+        SanPham sp = new SanPham(id, ma, ten, ngayTao);
         return sp;
     }
 
@@ -75,18 +77,14 @@ public class ViewSP extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         txtMa = new javax.swing.JTextField();
         txtTen = new javax.swing.JTextField();
-        txtGiaVon = new javax.swing.JTextField();
         txtNgayTao = new javax.swing.JTextField();
-        txtNgaySua = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbSanPham = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnSua = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -97,21 +95,17 @@ public class ViewSP extends javax.swing.JFrame {
 
         jLabel3.setText("Ten");
 
-        jLabel4.setText("Giá Vốn");
-
         jLabel5.setText("Ngày Tạo");
-
-        jLabel6.setText("Ngày Sửa");
 
         tbSanPham.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Mã", "Tên", "Giá Vốn", "Ngày Tạo", "Ngày Sửa"
+                "Mã", "Tên", "Ngày Tạo"
             }
         ));
         tbSanPham.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -128,7 +122,12 @@ public class ViewSP extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Sửa");
+        btnSua.setText("Sửa");
+        btnSua.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSuaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -145,23 +144,19 @@ public class ViewSP extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6))
+                            .addComponent(jLabel5))
                         .addGap(48, 48, 48)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtMa, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtTen, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtGiaVon, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtNgayTao, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtNgaySua, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(layout.createSequentialGroup()
                 .addGap(142, 142, 142)
                 .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addComponent(btnSua)
                 .addGap(102, 102, 102))
         );
         layout.setVerticalGroup(
@@ -178,22 +173,14 @@ public class ViewSP extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(txtTen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(txtGiaVon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
                     .addComponent(txtNgayTao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(110, 110, 110)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(txtNgaySua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
+                    .addComponent(btnSua)
                     .addComponent(jButton1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21))
         );
@@ -217,6 +204,11 @@ public class ViewSP extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "loi them ");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
+        JOptionPane.showMessageDialog(this, service.Sua(daTa()));
+        showTable(lists = service.listAll());
+    }//GEN-LAST:event_btnSuaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -254,19 +246,15 @@ public class ViewSP extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnSua;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tbSanPham;
-    private javax.swing.JTextField txtGiaVon;
     private javax.swing.JTextField txtMa;
-    private javax.swing.JTextField txtNgaySua;
     private javax.swing.JTextField txtNgayTao;
     private javax.swing.JTextField txtTen;
     // End of variables declaration//GEN-END:variables

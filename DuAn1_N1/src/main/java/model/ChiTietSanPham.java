@@ -21,6 +21,7 @@ public class ChiTietSanPham {
     private String anh;
     private Date hSD;
     private int soLuongTon;
+    private float giaVon;
     private float giaBan;
     private String ghiChu;
     private String maQR;
@@ -29,7 +30,7 @@ public class ChiTietSanPham {
     public ChiTietSanPham() {
     }
 
-    public ChiTietSanPham(int id, String ma, String ten, String loaiSP, String tenSanXuat, String quocGia, String anh, Date hSD, int soLuongTon, float giaBan, String ghiChu, String maQR, String trangThai) {
+    public ChiTietSanPham(int id, String ma, String ten, String loaiSP, String tenSanXuat, String quocGia, String anh, Date hSD, int soLuongTon, float giaVon, float giaBan, String ghiChu, String maQR, String trangThai) {
         this.id = id;
         this.ma = ma;
         this.ten = ten;
@@ -39,6 +40,7 @@ public class ChiTietSanPham {
         this.anh = anh;
         this.hSD = hSD;
         this.soLuongTon = soLuongTon;
+        this.giaVon = giaVon;
         this.giaBan = giaBan;
         this.ghiChu = ghiChu;
         this.maQR = maQR;
@@ -117,6 +119,14 @@ public class ChiTietSanPham {
         this.soLuongTon = soLuongTon;
     }
 
+    public float getGiaVon() {
+        return giaVon;
+    }
+
+    public void setGiaVon(float giaVon) {
+        this.giaVon = giaVon;
+    }
+
     public float getGiaBan() {
         return giaBan;
     }
@@ -148,5 +158,4 @@ public class ChiTietSanPham {
     public void setTrangThai(String trangThai) {
         this.trangThai = trangThai;
     }
-
 }

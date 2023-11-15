@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import model.SanPham;
 import repository.CrudfullTable;
+import view.ViewSP;
 
 /**
  *
@@ -30,9 +31,7 @@ public class SanPhamServiceImpl implements CrudfullTable<SanPham> {
                 sp.setId(rs.getInt("Id_SP"));
                 sp.setMa(rs.getString("MaSP"));
                 sp.setTen(rs.getString("TenSP"));
-                sp.setGiaVon(rs.getFloat("GiaVon"));
                 sp.setNgayTao(rs.getDate("NgayTao"));
-                sp.setNgaySua(rs.getDate("NgaySua"));
                 listSP.add(sp);
             }
         } catch (Exception e) {
@@ -44,13 +43,11 @@ public class SanPhamServiceImpl implements CrudfullTable<SanPham> {
     @Override
     public String them(SanPham t) {
         try (Connection con = Database.JdbcUtil.getConnection()) {
-            String sql = " insert into SanPham(MaSP, TenSP, GiaVon, NgayTao, NgaySua) values (?,?,?,?,?)";
+            String sql = " insert into SanPham(MaSP, TenSP, NgayTao) values (?,?,?)";
             PreparedStatement pre = con.prepareStatement(sql);
             pre.setString(1, t.getMa());
             pre.setString(2, t.getTen());
-            pre.setFloat(3, t.getGiaVon());
-            pre.setDate(4, t.getNgayTao());
-            pre.setDate(5, t.getNgaySua());
+            pre.setDate(3, t.getNgayTao());
             pre.executeUpdate();
 //            while (rs.next()) {
 //                SanPham sp = new SanPham();
@@ -69,7 +66,18 @@ public class SanPhamServiceImpl implements CrudfullTable<SanPham> {
 
     @Override
     public String Sua(SanPham t) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        try (Connection con = Database.JdbcUtil.getConnection()) {
+            String sql = " UPDATE SanPham set MaSP = ? , TenSP = ? , NgayTao = ? WHERE Id_SP = ? ";
+            PreparedStatement pre = con.prepareStatement(sql);
+            pre.setString(1, t.getMa());
+            pre.setString(2, t.getTen());
+            pre.setDate(3, t.getNgayTao());
+            pre.setInt(4, view.ViewSP.id);
+            pre.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "Thanh cong";
     }
 
     @Override

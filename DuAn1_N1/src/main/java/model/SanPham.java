@@ -15,20 +15,16 @@ public class SanPham {
     private int id;
     private String ma;
     private String ten;
-    private float giaVon;
     private Date ngayTao;
-    private Date ngaySua;
 
     public SanPham() {
     }
 
-    public SanPham(int id, String ma, String ten, float giaVon, Date ngayTao, Date ngaySua) {
+    public SanPham(int id, String ma, String ten, Date ngayTao) {
         this.id = id;
         this.ma = ma;
         this.ten = ten;
-        this.giaVon = giaVon;
         this.ngayTao = ngayTao;
-        this.ngaySua = ngaySua;
     }
 
     public int getId() {
@@ -55,28 +51,12 @@ public class SanPham {
         this.ten = ten;
     }
 
-    public float getGiaVon() {
-        return giaVon;
-    }
-
-    public void setGiaVon(float giaVon) {
-        this.giaVon = giaVon;
-    }
-
     public Date getNgayTao() {
         return ngayTao;
     }
 
     public void setNgayTao(Date ngayTao) {
         this.ngayTao = ngayTao;
-    }
-
-    public Date getNgaySua() {
-        return ngaySua;
-    }
-
-    public void setNgaySua(Date ngaySua) {
-        this.ngaySua = ngaySua;
     }
 
 }
