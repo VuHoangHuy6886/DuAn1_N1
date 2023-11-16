@@ -17,18 +17,19 @@ import repository.CrudfullTable;
  * @author vuhoa
  */
 public class ViewLSP extends javax.swing.JFrame {
-    
+
     DefaultTableModel dtm = new DefaultTableModel();
     CrudfullTable<LoaiSanPham> service = new LoaiSanPhamImpl();
     List<LoaiSanPham> listLSP = new ArrayList<>();
-    
+    public static int idLSP;
+
     public ViewLSP() {
         initComponents();
         dtm = (DefaultTableModel) tbLSP.getModel();
         listLSP = service.listAll();
         showTable(listLSP);
     }
-    
+
     public void showTable(List<LoaiSanPham> listLSP) {
         dtm.setRowCount(0);
         for (LoaiSanPham sp : listLSP) {
@@ -37,21 +38,23 @@ public class ViewLSP extends javax.swing.JFrame {
             });
         }
     }
-    
+
     public LoaiSanPham showIndex(int index) {
         LoaiSanPham sp = listLSP.get(index);
+        idLSP = sp.getId();
+        System.out.println(idLSP);
         txtMa.setText(sp.getMa());
         txtTen.setText(sp.getTen());
         return sp;
     }
-    
+
     public LoaiSanPham data() {
         String ma = txtMa.getText();
         String ten = txtTen.getText();
         LoaiSanPham lsp = new LoaiSanPham(WIDTH, ma, ten);
         return lsp;
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -83,6 +86,11 @@ public class ViewLSP extends javax.swing.JFrame {
         });
 
         btnSua.setText("Sửa");
+        btnSua.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSuaActionPerformed(evt);
+            }
+        });
 
         tbLSP.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -164,6 +172,11 @@ public class ViewLSP extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, service.them(data()));
         showTable(listLSP = service.listAll());
     }//GEN-LAST:event_btnThemActionPerformed
+
+    private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
+        JOptionPane.showMessageDialog(this, service.Sua(data()));
+        showTable(listLSP = service.listAll());
+    }//GEN-LAST:event_btnSuaActionPerformed
 
     /**
      * @param args the command line arguments

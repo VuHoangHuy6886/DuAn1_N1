@@ -67,8 +67,8 @@ public class ChiTietSanPhamServiceImpl implements ChiTietSanPhamService {
     public String themCTSP(ChiTietSanPham sp) {
         try (Connection con = Database.JdbcUtil.getConnection()) {
             String sql = "insert into ChiTietSanPham  "
-                    + " (MaCTSP, Id_SP, Id_LSP, Id_DSP,HSD,Id_NSX,SoLuongTon,DonGia,Id_KhoiLuong,DVT,MaQR,GhiChu,TrangThai) "
-                    + " values (?,?,?,?,?,?,?,?,?,?,?,?,?) ";
+                    + " (MaCTSP, Id_SP, Id_LSP, Id_DSP,HSD,Id_NSX,SoLuongTon,DonGia,Id_KhoiLuong,DVT,MaQR,GhiChu,TrangThai,Anh) "
+                    + " values (?,?,?,?,?,?,?,?,?,?,?,?,?,?) ";
             PreparedStatement pre = con.prepareStatement(sql);
             pre.setString(1, sp.getMaCTSP());
             pre.setInt(2, sp.getIdSanPham());
@@ -83,7 +83,7 @@ public class ChiTietSanPhamServiceImpl implements ChiTietSanPhamService {
             pre.setString(11, sp.getMaQr());
             pre.setString(12, sp.getGhiChu());
             pre.setString(13, sp.getTrangThai());
-            // pre.setString(14, sp.getAnh());
+            pre.setString(14, sp.getAnh());
             pre.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
@@ -95,7 +95,7 @@ public class ChiTietSanPhamServiceImpl implements ChiTietSanPhamService {
     public String sua(ChiTietSanPham sp) {
         try (Connection con = Database.JdbcUtil.getConnection()) {
             String sql = "UPDATE ChiTietSanPham SET MaCTSP = ?, Id_SP = ?, Id_NSX = ?, Id_LSP = ? ,"
-                    + " Id_KhoiLuong = ? , Id_DSP = ? , HSD = ? , SoLuongTon = ? ,DVT = ? , DonGia = ? , GhiChu = ? ,TrangThai = ? "
+                    + " Id_KhoiLuong = ? , Id_DSP = ? , HSD = ? , SoLuongTon = ? ,DVT = ? , DonGia = ? , GhiChu = ? ,TrangThai = ? , Anh = ? "
                     + " WHERE Id_SPCT = ? ;";
             try (PreparedStatement pre = con.prepareStatement(sql)) {
                 pre.setString(1, sp.getMaCTSP());
@@ -115,7 +115,8 @@ public class ChiTietSanPhamServiceImpl implements ChiTietSanPhamService {
 
                 pre.setString(11, sp.getGhiChu());
                 pre.setString(12, sp.getTrangThai());
-                pre.setInt(13, view.SanPham.idCTSP);
+                pre.setString(13, sp.getAnh());
+                pre.setInt(14, view.SanPham.idCTSP);
                 int rowsUpdated = pre.executeUpdate();
                 if (rowsUpdated > 0) {
                     return "Sửa thành công";

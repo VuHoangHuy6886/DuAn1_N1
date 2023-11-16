@@ -55,7 +55,17 @@ public class LoaiSanPhamImpl implements CrudfullTable<LoaiSanPham> {
 
     @Override
     public String Sua(LoaiSanPham t) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        try (Connection con = Database.JdbcUtil.getConnection()) {
+            String sql = "  UPDATE  LoaiSanPham SET MaLoai = ? ,TenLoai = ?  WHERE Id_LSP = ? ";
+            PreparedStatement pre = con.prepareStatement(sql);
+            pre.setString(1, t.getMa());
+            pre.setString(2, t.getTen());
+            pre.setInt(3, view.ViewLSP.idLSP);
+            pre.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "Thanh cong";
     }
 
     @Override

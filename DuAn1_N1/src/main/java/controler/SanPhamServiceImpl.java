@@ -56,7 +56,18 @@ public class SanPhamServiceImpl implements SanPhamService {
 
     @Override
     public String sua(SanPham sp) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        try (Connection con = Database.JdbcUtil.getConnection()) {
+            String sql = " UPDATE SanPham SET MaSP = ? , TenSP = ? , NgayTao = ?  WHERE Id_SP = ? ";
+            PreparedStatement pre = con.prepareStatement(sql);
+            pre.setString(1, sp.getMa());
+            pre.setString(2, sp.getTen());
+            pre.setDate(3, sp.getNgayTao());
+            pre.setInt(4, view.ViewSP.id);
+            pre.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "thanh cong";
     }
 
 }

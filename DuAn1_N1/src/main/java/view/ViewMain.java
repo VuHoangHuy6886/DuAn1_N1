@@ -62,7 +62,7 @@ public class ViewMain extends javax.swing.JFrame {
         jPanel1.setVerifyInputWhenFocusTarget(false);
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel3.setBackground(new java.awt.Color(51, 204, 255));
+        jPanel3.setBackground(new java.awt.Color(0, 204, 255));
         jPanel3.setPreferredSize(new java.awt.Dimension(200, 800));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -316,7 +316,7 @@ public class ViewMain extends javax.swing.JFrame {
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 800));
 
-        desktop.setBackground(new java.awt.Color(51, 204, 255));
+        desktop.setBackground(new java.awt.Color(0, 204, 255));
         desktop.setPreferredSize(new java.awt.Dimension(1000, 800));
 
         javax.swing.GroupLayout desktopLayout = new javax.swing.GroupLayout(desktop);
