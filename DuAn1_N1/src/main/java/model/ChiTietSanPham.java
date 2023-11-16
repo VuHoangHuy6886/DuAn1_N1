@@ -12,16 +12,16 @@ import java.sql.Date;
  */
 public class ChiTietSanPham {
 
-    private int id;
-    private String maSPCT;
-    private String tenSanPham;
-    private String tenLoaiSP;
-    private String tenDongSanPham;
+    private int idCTSP;
+    private String maCTSP;
+    private int idSanPham;
+    private int idLoaiSp;
+    private int idDongSanPham;
     private Date hSD;
-    private String XuatSu;
+    private int idNSX;
     private int soLuongTon;
     private float donGia;
-    private String khoiLuong;
+    private int idKhoiLuong;
     private String donViTinh;
     private String maQr;
     private String ghiChu;
@@ -31,17 +31,17 @@ public class ChiTietSanPham {
     public ChiTietSanPham() {
     }
 
-    public ChiTietSanPham(int id, String maSPCT, String tenSanPham, String tenLoaiSP, String tenDongSanPham, Date hSD, String XuatSu, int soLuongTon, float donGia, String khoiLuong, String donViTinh, String maQr, String ghiChu, String trangThai, String anh) {
-        this.id = id;
-        this.maSPCT = maSPCT;
-        this.tenSanPham = tenSanPham;
-        this.tenLoaiSP = tenLoaiSP;
-        this.tenDongSanPham = tenDongSanPham;
+    public ChiTietSanPham(int idCTSP, String maCTSP, int idSanPham, int idLoaiSp, int idDongSanPham, Date hSD, int idNSX, int soLuongTon, float donGia, int idKhoiLuong, String donViTinh, String maQr, String ghiChu, String trangThai, String anh) {
+        this.idCTSP = idCTSP;
+        this.maCTSP = maCTSP;
+        this.idSanPham = idSanPham;
+        this.idLoaiSp = idLoaiSp;
+        this.idDongSanPham = idDongSanPham;
         this.hSD = hSD;
-        this.XuatSu = XuatSu;
+        this.idNSX = idNSX;
         this.soLuongTon = soLuongTon;
         this.donGia = donGia;
-        this.khoiLuong = khoiLuong;
+        this.idKhoiLuong = idKhoiLuong;
         this.donViTinh = donViTinh;
         this.maQr = maQr;
         this.ghiChu = ghiChu;
@@ -49,44 +49,44 @@ public class ChiTietSanPham {
         this.anh = anh;
     }
 
-    public int getId() {
-        return id;
+    public int getIdCTSP() {
+        return idCTSP;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdCTSP(int idCTSP) {
+        this.idCTSP = idCTSP;
     }
 
-    public String getMaSPCT() {
-        return maSPCT;
+    public String getMaCTSP() {
+        return maCTSP;
     }
 
-    public void setMaSPCT(String maSPCT) {
-        this.maSPCT = maSPCT;
+    public void setMaCTSP(String maCTSP) {
+        this.maCTSP = maCTSP;
     }
 
-    public String getTenSanPham() {
-        return tenSanPham;
+    public int getIdSanPham() {
+        return idSanPham;
     }
 
-    public void setTenSanPham(String tenSanPham) {
-        this.tenSanPham = tenSanPham;
+    public void setIdSanPham(int idSanPham) {
+        this.idSanPham = idSanPham;
     }
 
-    public String getTenLoaiSP() {
-        return tenLoaiSP;
+    public int getIdLoaiSp() {
+        return idLoaiSp;
     }
 
-    public void setTenLoaiSP(String tenLoaiSP) {
-        this.tenLoaiSP = tenLoaiSP;
+    public void setIdLoaiSp(int idLoaiSp) {
+        this.idLoaiSp = idLoaiSp;
     }
 
-    public String getTenDongSanPham() {
-        return tenDongSanPham;
+    public int getIdDongSanPham() {
+        return idDongSanPham;
     }
 
-    public void setTenDongSanPham(String tenDongSanPham) {
-        this.tenDongSanPham = tenDongSanPham;
+    public void setIdDongSanPham(int idDongSanPham) {
+        this.idDongSanPham = idDongSanPham;
     }
 
     public Date gethSD() {
@@ -97,12 +97,12 @@ public class ChiTietSanPham {
         this.hSD = hSD;
     }
 
-    public String getXuatSu() {
-        return XuatSu;
+    public int getIdNSX() {
+        return idNSX;
     }
 
-    public void setXuatSu(String XuatSu) {
-        this.XuatSu = XuatSu;
+    public void setIdNSX(int idNSX) {
+        this.idNSX = idNSX;
     }
 
     public int getSoLuongTon() {
@@ -121,12 +121,12 @@ public class ChiTietSanPham {
         this.donGia = donGia;
     }
 
-    public String getKhoiLuong() {
-        return khoiLuong;
+    public int getIdKhoiLuong() {
+        return idKhoiLuong;
     }
 
-    public void setKhoiLuong(String khoiLuong) {
-        this.khoiLuong = khoiLuong;
+    public void setIdKhoiLuong(int idKhoiLuong) {
+        this.idKhoiLuong = idKhoiLuong;
     }
 
     public String getDonViTinh() {

@@ -46,7 +46,7 @@ public class NSXImpl implements CrudfullTable<NSX> {
             PreparedStatement pre = con.prepareStatement(sql);
             pre.setString(1, t.getMa());
             pre.setString(2, t.getTen());
-            pre.setString(3, t.getQuocGia()); 
+            pre.setString(3, t.getQuocGia());
             pre.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
@@ -56,7 +56,18 @@ public class NSXImpl implements CrudfullTable<NSX> {
 
     @Override
     public String Sua(NSX t) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        try (Connection con = Database.JdbcUtil.getConnection()) {
+            String sql = "  UPDATE  NhaSanXuat set MaNSX = ? ,TenNSX = ? ,QuocGia = ? where Id_NSX = ?";
+            PreparedStatement pre = con.prepareStatement(sql);
+            pre.setString(1, t.getMa());
+            pre.setString(2, t.getTen());
+            pre.setString(3, t.getQuocGia());
+            pre.setInt(4, view.ViewNSX.id);
+            pre.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "Thanh cong";
     }
 
     @Override

@@ -10,20 +10,19 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 import model.SanPham;
-import repository.CrudfullTable;
-import view.ViewSP;
+import repository.SanPhamService;
 
 /**
  *
  * @author vuhoa
  */
-public class SanPhamServiceImpl implements CrudfullTable<SanPham> {
+public class SanPhamServiceImpl implements SanPhamService {
 
     @Override
-    public List<SanPham> listAll() {
+    public List<SanPham> listSanPham() {
         List<SanPham> listSP = new ArrayList<>();
         try (Connection con = Database.JdbcUtil.getConnection()) {
-            String sql = "Select * from SanPham";
+            String sql = "Select * from SanPham ";
             PreparedStatement pre = con.prepareStatement(sql);
             ResultSet rs = pre.executeQuery();
             while (rs.next()) {
@@ -49,15 +48,6 @@ public class SanPhamServiceImpl implements CrudfullTable<SanPham> {
             pre.setString(2, t.getTen());
             pre.setDate(3, t.getNgayTao());
             pre.executeUpdate();
-//            while (rs.next()) {
-//                SanPham sp = new SanPham();
-//                sp.setId(rs.getInt("Id_SP"));
-//                sp.setMa(rs.getString("MaSP"));
-//                sp.setTen(rs.getString("TenSP"));
-//                sp.setGiaVon(rs.getFloat("GiaVon"));
-//                sp.setNgayTao(rs.getDate("NgayTao"));
-//                sp.setNgaySua(rs.getDate("NgaySua"));
-//            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -65,28 +55,7 @@ public class SanPhamServiceImpl implements CrudfullTable<SanPham> {
     }
 
     @Override
-    public String Sua(SanPham t) {
-        try (Connection con = Database.JdbcUtil.getConnection()) {
-            String sql = " UPDATE SanPham set MaSP = ? , TenSP = ? , NgayTao = ? WHERE Id_SP = ? ";
-            PreparedStatement pre = con.prepareStatement(sql);
-            pre.setString(1, t.getMa());
-            pre.setString(2, t.getTen());
-            pre.setDate(3, t.getNgayTao());
-            pre.setInt(4, view.ViewSP.id);
-            pre.executeUpdate();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return "Thanh cong";
-    }
-
-    @Override
-    public String xoa(SanPham t) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public List<SanPham> serch(SanPham t) {
+    public String sua(SanPham sp) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 

@@ -6,6 +6,7 @@ package repository;
 
 import java.util.List;
 import model.ChiTietSanPham;
+import modelView.CTSP;
 
 /**
  *
@@ -13,5 +14,9 @@ import model.ChiTietSanPham;
  */
 public interface ChiTietSanPhamService {
 
-    List<ChiTietSanPham> listChiTietSanPham();
+    List<CTSP> listChiTietSanPham();
+
+    String themCTSP(ChiTietSanPham sp);
+
+    String sua(ChiTietSanPham sp);
 }

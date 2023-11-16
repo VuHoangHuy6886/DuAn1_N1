@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import model.ChiTietSanPham;
 import model.SanPham;
+import modelView.CTSP;
 import repository.ChiTietSanPhamService;
 import repository.CrudfullTable;
 import repository.SanPhamService;
@@ -23,10 +24,10 @@ import repository.SanPhamService;
 public class ChiTietSanPhamServiceImpl implements ChiTietSanPhamService {
 
     @Override
-    public List<ChiTietSanPham> listChiTietSanPham() {
-        List<ChiTietSanPham> listCTSP = new ArrayList<>();
+    public List<CTSP> listChiTietSanPham() {
+        List<CTSP> listCTSPView = new ArrayList<>();
         try (Connection con = Database.JdbcUtil.getConnection()) {
-            String sql = " select ct.MaCTSP,SanPham.TenSP,lsp.TenLoai,dsp.TenDSP, "
+            String sql = " select ct.Id_SPCT, ct.MaCTSP,SanPham.TenSP,lsp.TenLoai,dsp.TenDSP, "
                     + " ct.HSD,nsx.QuocGia,ct.SoLuongTon,ct.DonGia,KhoiLuong.TenKhoiLuong, "
                     + " ct.DVT,ct.MaQR,ct.GhiChu,ct.TrangThai,ct.Anh "
                     + " from ChiTietSanPham as ct join SanPham  "
@@ -38,7 +39,7 @@ public class ChiTietSanPhamServiceImpl implements ChiTietSanPhamService {
             PreparedStatement pre = con.prepareCall(sql);
             ResultSet rs = pre.executeQuery();
             while (rs.next()) {
-                ChiTietSanPham ctsp = new ChiTietSanPham();
+                CTSP ctsp = new CTSP();
                 ctsp.setId(rs.getInt("Id_SPCT"));
                 ctsp.setMaSPCT(rs.getString("MaCTSP"));
                 ctsp.setTenSanPham(rs.getString("TenSP"));
@@ -54,11 +55,78 @@ public class ChiTietSanPhamServiceImpl implements ChiTietSanPhamService {
                 ctsp.setGhiChu(rs.getString("GhiChu"));
                 ctsp.setTrangThai(rs.getString("TrangThai"));
                 ctsp.setAnh(rs.getString("Anh"));
-                listCTSP.add(ctsp);
+                listCTSPView.add(ctsp);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return listCTSP;
+        return listCTSPView;
     }
+
+    @Override
+    public String themCTSP(ChiTietSanPham sp) {
+        try (Connection con = Database.JdbcUtil.getConnection()) {
+            String sql = "insert into ChiTietSanPham  "
+                    + " (MaCTSP, Id_SP, Id_LSP, Id_DSP,HSD,Id_NSX,SoLuongTon,DonGia,Id_KhoiLuong,DVT,MaQR,GhiChu,TrangThai) "
+                    + " values (?,?,?,?,?,?,?,?,?,?,?,?,?) ";
+            PreparedStatement pre = con.prepareStatement(sql);
+            pre.setString(1, sp.getMaCTSP());
+            pre.setInt(2, sp.getIdSanPham());
+            pre.setInt(3, sp.getIdLoaiSp());
+            pre.setInt(4, sp.getIdDongSanPham());
+            pre.setDate(5, sp.gethSD());
+            pre.setInt(6, sp.getIdNSX());
+            pre.setInt(7, sp.getSoLuongTon());
+            pre.setFloat(8, sp.getDonGia());
+            pre.setInt(9, sp.getIdKhoiLuong());
+            pre.setString(10, sp.getDonViTinh());
+            pre.setString(11, sp.getMaQr());
+            pre.setString(12, sp.getGhiChu());
+            pre.setString(13, sp.getTrangThai());
+            // pre.setString(14, sp.getAnh());
+            pre.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "Thành Công";
+    }
+
+    @Override
+    public String sua(ChiTietSanPham sp) {
+        try (Connection con = Database.JdbcUtil.getConnection()) {
+            String sql = "UPDATE ChiTietSanPham SET MaCTSP = ?, Id_SP = ?, Id_NSX = ?, Id_LSP = ? ,"
+                    + " Id_KhoiLuong = ? , Id_DSP = ? , HSD = ? , SoLuongTon = ? ,DVT = ? , DonGia = ? , GhiChu = ? ,TrangThai = ? "
+                    + " WHERE Id_SPCT = ? ;";
+            try (PreparedStatement pre = con.prepareStatement(sql)) {
+                pre.setString(1, sp.getMaCTSP());
+                pre.setInt(2, sp.getIdSanPham());
+                pre.setInt(3, sp.getIdNSX());
+                pre.setInt(4, sp.getIdLoaiSp());
+                pre.setInt(5, sp.getIdKhoiLuong());
+                pre.setInt(6, sp.getIdDongSanPham());
+                // LLXO 
+                pre.setDate(7, sp.gethSD());
+
+                pre.setInt(8, sp.getSoLuongTon());
+
+                pre.setString(9, sp.getDonViTinh());
+
+                pre.setFloat(10, sp.getDonGia());
+
+                pre.setString(11, sp.getGhiChu());
+                pre.setString(12, sp.getTrangThai());
+                pre.setInt(13, view.SanPham.idCTSP);
+                int rowsUpdated = pre.executeUpdate();
+                if (rowsUpdated > 0) {
+                    return "Sửa thành công";
+                } else {
+                    return "Không có bản ghi nào được sửa đổi";
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace(); // hoặc log thông báo lỗi
+            return "Có lỗi xảy ra khi sửa đổi";
+        }
+    }
+
 }

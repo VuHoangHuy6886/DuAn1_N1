@@ -49,6 +49,8 @@ public class ViewNSX extends javax.swing.JFrame {
 
     public NSX showIndex(int index) {
         NSX nsx = lists.get(index);
+        id = nsx.getId();
+        System.out.println(id);
         txtMa.setText(nsx.getMa());
         txtTen.setText(nsx.getTen());
         txtQG.setText(nsx.getQuocGia());
@@ -90,6 +92,11 @@ public class ViewNSX extends javax.swing.JFrame {
         });
 
         jButton2.setText("Sửa");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         tbNSX.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -183,6 +190,17 @@ public class ViewNSX extends javax.swing.JFrame {
             return;
         }
     }//GEN-LAST:event_btnThemActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        int c = JOptionPane.showConfirmDialog(this, "bạn có muốn thêm nhà sản xuất không ?");
+        if (c == JOptionPane.OK_OPTION) {
+            JOptionPane.showMessageDialog(this, service.Sua(data()));
+            showTable(lists = service.listAll());
+            System.out.println("1");
+        } else {
+            return;
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

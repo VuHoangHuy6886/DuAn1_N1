@@ -13,5 +13,9 @@ import model.SanPham;
  */
 public interface SanPhamService {
 
-    List<SanPham> listTen();
+    List<SanPham> listSanPham();
+
+    String them(SanPham sp);
+
+    String sua(SanPham sp);
 }

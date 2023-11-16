@@ -316,7 +316,7 @@ public class ViewMain extends javax.swing.JFrame {
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 800));
 
-        desktop.setBackground(new java.awt.Color(255, 255, 255));
+        desktop.setBackground(new java.awt.Color(51, 204, 255));
         desktop.setPreferredSize(new java.awt.Dimension(1000, 800));
 
         javax.swing.GroupLayout desktopLayout = new javax.swing.GroupLayout(desktop);

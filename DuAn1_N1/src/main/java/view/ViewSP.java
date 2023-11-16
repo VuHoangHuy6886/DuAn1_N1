@@ -11,7 +11,7 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.SanPham;
-import repository.CrudfullTable;
+import repository.SanPhamService;
 
 /**
  *
@@ -20,15 +20,15 @@ import repository.CrudfullTable;
 public class ViewSP extends javax.swing.JFrame {
 
     DefaultTableModel dtm = new DefaultTableModel();
-    CrudfullTable<SanPham> service = new SanPhamServiceImpl();
-    List<SanPham> lists = new ArrayList<>();
+    SanPhamService serviceSanPham = new SanPhamServiceImpl();
+    List<SanPham> listSanPham = new ArrayList<>();
     public static int id;
 
     public ViewSP() {
         initComponents();
         dtm = (DefaultTableModel) tbSanPham.getModel();
-        lists = service.listAll();
-        showTable(lists);
+        listSanPham = serviceSanPham.listSanPham();
+        showTable(listSanPham);
     }
 
     public void showTable(List<SanPham> lists) {
@@ -41,7 +41,7 @@ public class ViewSP extends javax.swing.JFrame {
     }
 
     public SanPham showIndex(int index) {
-        SanPham sp = lists.get(index);
+        SanPham sp = listSanPham.get(index);
         txtMa.setText(sp.getMa());
         txtTen.setText(sp.getTen());
         txtNgayTao.setText(String.valueOf(sp.getNgayTao()));
@@ -203,8 +203,8 @@ public class ViewSP extends javax.swing.JFrame {
         try {
             int c = JOptionPane.showConfirmDialog(this, "ban co muon them ko");
             if (c == JOptionPane.OK_OPTION) {
-                JOptionPane.showMessageDialog(this, service.them(daTa()));
-                showTable(lists = service.listAll());
+                JOptionPane.showMessageDialog(this, serviceSanPham.them(daTa()));
+                showTable(listSanPham = serviceSanPham.listSanPham());
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "loi them ");
@@ -212,8 +212,8 @@ public class ViewSP extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
-        JOptionPane.showMessageDialog(this, service.Sua(daTa()));
-        showTable(lists = service.listAll());
+//        JOptionPane.showMessageDialog(this, serviceSanPham.S(daTa()));
+//        showTable(listSanPham = serviceSanPham.listSanPham());
     }//GEN-LAST:event_btnSuaActionPerformed
 
     /**
