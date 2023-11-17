@@ -14,7 +14,7 @@ import java.sql.SQLException;
  */
 public class JdbcUtil {
     public final static String USERNAME = "sa";
-    public final static String PASSWORD = "123";
+    public final static String PASSWORD = "123456";
     public final static String URL = "jdbc:sqlserver://localhost:1433;"
             + "databaseName=DuAn1_N1;encrypt=false;";
 
