@@ -44,15 +44,25 @@ public class ViewMain extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         menu3 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        menu4 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
         menu5 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         menu6 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         menu7 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        lbTenNhanVien = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
         desktop = new javax.swing.JDesktopPane();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
+        jMenu3 = new javax.swing.JMenu();
+        jMenu4 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -68,6 +78,7 @@ public class ViewMain extends javax.swing.JFrame {
 
         menu1.setBackground(new java.awt.Color(51, 204, 255));
         menu1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+        menu1.setPreferredSize(new java.awt.Dimension(190, 60));
         menu1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 menu1MouseClicked(evt);
@@ -93,14 +104,14 @@ public class ViewMain extends javax.swing.JFrame {
         );
         menu1Layout.setVerticalGroup(
             menu1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
+            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE)
         );
 
-        jPanel3.add(menu1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 190, 50));
+        jPanel3.add(menu1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 190, 60));
 
         menu2.setBackground(new java.awt.Color(51, 204, 255));
         menu2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
-        menu2.setPreferredSize(new java.awt.Dimension(190, 50));
+        menu2.setPreferredSize(new java.awt.Dimension(190, 60));
         menu2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 menu2MouseClicked(evt);
@@ -120,23 +131,23 @@ public class ViewMain extends javax.swing.JFrame {
         menu2Layout.setHorizontalGroup(
             menu2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(menu2Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addGap(27, 27, 27)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
         menu2Layout.setVerticalGroup(
             menu2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(menu2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        jPanel3.add(menu2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 190, -1));
+        jPanel3.add(menu2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 190, 60));
 
         menu3.setBackground(new java.awt.Color(51, 204, 255));
         menu3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
-        menu3.setPreferredSize(new java.awt.Dimension(190, 50));
+        menu3.setPreferredSize(new java.awt.Dimension(190, 60));
         menu3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 menu3MouseClicked(evt);
@@ -164,51 +175,15 @@ public class ViewMain extends javax.swing.JFrame {
             menu3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(menu3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
+                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        jPanel3.add(menu3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 650, 190, -1));
-
-        menu4.setBackground(new java.awt.Color(51, 204, 255));
-        menu4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
-        menu4.setPreferredSize(new java.awt.Dimension(190, 50));
-        menu4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                menu4MouseClicked(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                menu4MousePressed(evt);
-            }
-        });
-
-        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/bill.png"))); // NOI18N
-        jLabel5.setText("Hóa Đơn");
-
-        javax.swing.GroupLayout menu4Layout = new javax.swing.GroupLayout(menu4);
-        menu4.setLayout(menu4Layout);
-        menu4Layout.setHorizontalGroup(
-            menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(menu4Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(25, Short.MAX_VALUE))
-        );
-        menu4Layout.setVerticalGroup(
-            menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(menu4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        jPanel3.add(menu4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, 190, -1));
+        jPanel3.add(menu3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 690, 190, -1));
 
         menu5.setBackground(new java.awt.Color(51, 204, 255));
         menu5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
-        menu5.setPreferredSize(new java.awt.Dimension(190, 50));
+        menu5.setPreferredSize(new java.awt.Dimension(190, 60));
         menu5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 menu5MouseClicked(evt);
@@ -236,15 +211,15 @@ public class ViewMain extends javax.swing.JFrame {
             menu5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(menu5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
+                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        jPanel3.add(menu5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 500, 190, -1));
+        jPanel3.add(menu5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 510, 190, -1));
 
         menu6.setBackground(new java.awt.Color(51, 204, 255));
         menu6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
-        menu6.setPreferredSize(new java.awt.Dimension(190, 50));
+        menu6.setPreferredSize(new java.awt.Dimension(190, 60));
         menu6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 menu6MouseClicked(evt);
@@ -272,15 +247,15 @@ public class ViewMain extends javax.swing.JFrame {
             menu6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(menu6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
+                .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        jPanel3.add(menu6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 570, 190, -1));
+        jPanel3.add(menu6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 600, 190, -1));
 
         menu7.setBackground(new java.awt.Color(51, 204, 255));
         menu7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
-        menu7.setPreferredSize(new java.awt.Dimension(190, 50));
+        menu7.setPreferredSize(new java.awt.Dimension(190, 60));
         menu7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 menu7MouseClicked(evt);
@@ -308,29 +283,85 @@ public class ViewMain extends javax.swing.JFrame {
             menu7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(menu7Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
+                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        jPanel3.add(menu7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 340, 190, -1));
+        jPanel3.add(menu7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, 190, 60));
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 800));
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Logo");
+        jLabel1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 255, 255)));
+        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 120, 120));
 
-        desktop.setBackground(new java.awt.Color(0, 204, 255));
+        jLabel5.setText("Tên :");
+        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, -1));
+
+        lbTenNhanVien.setText("Vũ Hoàng Huy");
+        jPanel3.add(lbTenNhanVien, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, 90, -1));
+
+        jLabel9.setText("Thời Gian :");
+        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, -1, -1));
+
+        jLabel10.setText("Giờ hiện Tại");
+        jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, 90, -1));
+
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        desktop.setBackground(new java.awt.Color(255, 204, 204));
         desktop.setPreferredSize(new java.awt.Dimension(1000, 800));
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel11.setFont(new java.awt.Font("Times New Roman", 1, 40)); // NOI18N
+        jLabel11.setText("Giao Diện Desktop");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(343, Short.MAX_VALUE)
+                .addComponent(jLabel11)
+                .addGap(335, 335, 335))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(259, 259, 259)
+                .addComponent(jLabel11)
+                .addContainerGap(494, Short.MAX_VALUE))
+        );
+
+        desktop.setLayer(jPanel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout desktopLayout = new javax.swing.GroupLayout(desktop);
         desktop.setLayout(desktopLayout);
         desktopLayout.setHorizontalGroup(
             desktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1000, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         desktopLayout.setVerticalGroup(
             desktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 800, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jPanel1.add(desktop, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 0, 1000, -1));
+        jPanel1.add(desktop, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 0, 1000, 800));
+
+        jMenu1.setText("Đăng Xuất ");
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Hóa Đơn");
+        jMenuBar1.add(jMenu2);
+
+        jMenu3.setText("Đợt Giảm Giá");
+        jMenuBar1.add(jMenu3);
+
+        jMenu4.setText("Phiếu Đổi");
+        jMenuBar1.add(jMenu4);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -340,7 +371,9 @@ public class ViewMain extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -351,7 +384,6 @@ public class ViewMain extends javax.swing.JFrame {
         menu1.setBackground(ClickedColor);
         menu2.setBackground(DefaultColor);
         menu3.setBackground(DefaultColor);
-        menu4.setBackground(DefaultColor);
         menu5.setBackground(DefaultColor);
         menu6.setBackground(DefaultColor);
         menu7.setBackground(DefaultColor);
@@ -361,7 +393,6 @@ public class ViewMain extends javax.swing.JFrame {
         menu1.setBackground(DefaultColor);
         menu2.setBackground(ClickedColor);
         menu3.setBackground(DefaultColor);
-        menu4.setBackground(DefaultColor);
         menu5.setBackground(DefaultColor);
         menu6.setBackground(DefaultColor);
         menu7.setBackground(DefaultColor);
@@ -385,25 +416,10 @@ public class ViewMain extends javax.swing.JFrame {
         menu1.setBackground(DefaultColor);
         menu2.setBackground(DefaultColor);
         menu3.setBackground(ClickedColor);
-        menu4.setBackground(DefaultColor);
         menu5.setBackground(DefaultColor);
         menu6.setBackground(DefaultColor);
         menu7.setBackground(DefaultColor);
     }//GEN-LAST:event_menu3MousePressed
-
-    private void menu4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menu4MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_menu4MouseClicked
-
-    private void menu4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menu4MousePressed
-        menu1.setBackground(DefaultColor);
-        menu2.setBackground(DefaultColor);
-        menu3.setBackground(DefaultColor);
-        menu4.setBackground(ClickedColor);
-        menu5.setBackground(DefaultColor);
-        menu6.setBackground(DefaultColor);
-        menu7.setBackground(DefaultColor);
-    }//GEN-LAST:event_menu4MousePressed
 
     private void menu5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menu5MouseClicked
         // TODO add your handling code here:
@@ -413,7 +429,6 @@ public class ViewMain extends javax.swing.JFrame {
         menu1.setBackground(DefaultColor);
         menu2.setBackground(DefaultColor);
         menu3.setBackground(DefaultColor);
-        menu4.setBackground(DefaultColor);
         menu5.setBackground(ClickedColor);
         menu6.setBackground(DefaultColor);
         menu7.setBackground(DefaultColor);
@@ -427,7 +442,6 @@ public class ViewMain extends javax.swing.JFrame {
         menu1.setBackground(DefaultColor);
         menu2.setBackground(DefaultColor);
         menu3.setBackground(DefaultColor);
-        menu4.setBackground(DefaultColor);
         menu5.setBackground(DefaultColor);
         menu6.setBackground(ClickedColor);
         menu7.setBackground(DefaultColor);
@@ -443,7 +457,6 @@ public class ViewMain extends javax.swing.JFrame {
         menu1.setBackground(DefaultColor);
         menu2.setBackground(DefaultColor);
         menu3.setBackground(DefaultColor);
-        menu4.setBackground(DefaultColor);
         menu5.setBackground(DefaultColor);
         menu6.setBackground(DefaultColor);
         menu7.setBackground(ClickedColor);
@@ -486,6 +499,9 @@ public class ViewMain extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane desktop;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -493,12 +509,19 @@ public class ViewMain extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel lbTenNhanVien;
     private javax.swing.JPanel menu1;
     private javax.swing.JPanel menu2;
     private javax.swing.JPanel menu3;
-    private javax.swing.JPanel menu4;
     private javax.swing.JPanel menu5;
     private javax.swing.JPanel menu6;
     private javax.swing.JPanel menu7;

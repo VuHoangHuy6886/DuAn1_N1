@@ -26,13 +26,13 @@ public class ChiTietSanPham {
     private String donViTinh;
     private String maQr;
     private String ghiChu;
-    private String trangThai;
+    private int trangThai;
     private String anh;
 
     public ChiTietSanPham() {
     }
 
-    public ChiTietSanPham(int idCTSP, String maCTSP, int idSanPham, int idLoaiSp, int idDongSanPham, Date hSD, int idNSX, int soLuongTon, float donGia, int idKhoiLuong, String donViTinh, String maQr, String ghiChu, String trangThai, String anh) {
+    public ChiTietSanPham(int idCTSP, String maCTSP, int idSanPham, int idLoaiSp, int idDongSanPham, Date hSD, int idNSX, int soLuongTon, float donGia, int idKhoiLuong, String donViTinh, String maQr, String ghiChu, int trangThai, String anh) {
         this.idCTSP = idCTSP;
         this.maCTSP = maCTSP;
         this.idSanPham = idSanPham;
@@ -154,11 +154,11 @@ public class ChiTietSanPham {
         this.ghiChu = ghiChu;
     }
 
-    public String getTrangThai() {
+    public int getTrangThai() {
         return trangThai;
     }
 
-    public void setTrangThai(String trangThai) {
+    public void setTrangThai(int trangThai) {
         this.trangThai = trangThai;
     }
 

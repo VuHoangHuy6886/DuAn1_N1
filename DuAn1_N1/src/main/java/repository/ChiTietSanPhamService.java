@@ -19,4 +19,6 @@ public interface ChiTietSanPhamService {
     String themCTSP(ChiTietSanPham sp);
 
     String sua(ChiTietSanPham sp);
+
+    List<CTSP> Serch(String sp);
 }

@@ -25,13 +25,13 @@ public class CTSP {
     private String donViTinh;
     private String maQr;
     private String ghiChu;
-    private String trangThai;
+    private int trangThai;
     private String anh;
 
     public CTSP() {
     }
 
-    public CTSP(int id, String maSPCT, String tenSanPham, String tenLoaiSP, String tenDongSanPham, Date hSD, String XuatSu, int soLuongTon, float donGia, String khoiLuong, String donViTinh, String maQr, String ghiChu, String trangThai, String anh) {
+    public CTSP(int id, String maSPCT, String tenSanPham, String tenLoaiSP, String tenDongSanPham, Date hSD, String XuatSu, int soLuongTon, float donGia, String khoiLuong, String donViTinh, String maQr, String ghiChu, int trangThai, String anh) {
         this.id = id;
         this.maSPCT = maSPCT;
         this.tenSanPham = tenSanPham;
@@ -153,11 +153,11 @@ public class CTSP {
         this.ghiChu = ghiChu;
     }
 
-    public String getTrangThai() {
+    public int getTrangThai() {
         return trangThai;
     }
 
-    public void setTrangThai(String trangThai) {
+    public void setTrangThai(int trangThai) {
         this.trangThai = trangThai;
     }
 
