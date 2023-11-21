@@ -16,7 +16,7 @@ public class ViewMain extends javax.swing.JFrame {
      * Creates new form ViewMain
      */
     Color DefaultColor, ClickedColor;
-
+    
     public ViewMain() {
         initComponents();
         DefaultColor = new Color(51, 204, 255);
@@ -24,7 +24,7 @@ public class ViewMain extends javax.swing.JFrame {
         // set toan bo menu bang defaulcolor
         menu1.setBackground(DefaultColor);
         menu2.setBackground(DefaultColor);
-
+        
     }
 
     /**
@@ -406,7 +406,9 @@ public class ViewMain extends javax.swing.JFrame {
     }//GEN-LAST:event_menu4MousePressed
 
     private void menu5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menu5MouseClicked
-        // TODO add your handling code here:
+        viewVoucher vc = new viewVoucher();
+        desktop.removeAll();
+        desktop.add(vc).setVisible(true);
     }//GEN-LAST:event_menu5MouseClicked
 
     private void menu5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menu5MousePressed
