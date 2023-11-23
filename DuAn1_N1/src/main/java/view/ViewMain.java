@@ -16,6 +16,8 @@ public class ViewMain extends javax.swing.JFrame {
      * Creates new form ViewMain
      */
     Color DefaultColor, ClickedColor;
+
+    
     public ViewMain() {
         initComponents();
         DefaultColor = new Color(51, 204, 255);
@@ -23,6 +25,7 @@ public class ViewMain extends javax.swing.JFrame {
         // set toan bo menu bang defaulcolor
         menu1.setBackground(DefaultColor);
         menu2.setBackground(DefaultColor);
+
         
     }
 
