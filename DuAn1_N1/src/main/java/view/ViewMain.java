@@ -405,6 +405,7 @@ public class ViewMain extends javax.swing.JFrame {
     }//GEN-LAST:event_menu4MousePressed
 
     private void menu5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menu5MouseClicked
+        // TODO add your handling code here:
         viewVoucher vc = new viewVoucher();
         desktop.removeAll();
         desktop.add(vc).setVisible(true);
