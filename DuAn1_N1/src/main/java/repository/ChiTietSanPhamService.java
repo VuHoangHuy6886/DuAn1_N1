@@ -21,4 +21,6 @@ public interface ChiTietSanPhamService {
     String sua(ChiTietSanPham sp);
 
     List<CTSP> Serch(String sp);
+
+    List<CTSP> getSanPhamInHoaDon(int index);
 }

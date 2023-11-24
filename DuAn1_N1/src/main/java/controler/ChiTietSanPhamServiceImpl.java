@@ -13,6 +13,7 @@ import java.util.List;
 import model.ChiTietSanPham;
 import model.SanPham;
 import modelView.CTSP;
+import modelView.HoaDonView;
 import repository.ChiTietSanPhamService;
 import repository.CrudfullTable;
 import repository.SanPhamService;
@@ -99,6 +100,7 @@ public class ChiTietSanPhamServiceImpl implements ChiTietSanPhamService {
             pre.setInt(13, sp.getTrangThai());
             pre.setString(14, sp.getAnh());
             pre.executeUpdate();
+            System.out.println("1");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -189,4 +191,28 @@ public class ChiTietSanPhamServiceImpl implements ChiTietSanPhamService {
         return listCTSPView;
     }
 
+    @Override
+    public List<CTSP> getSanPhamInHoaDon(int index) {
+        List<CTSP> listSPInHoaDon = new ArrayList<>();
+        try (Connection con = Database.JdbcUtil.getConnection()) {
+            String sql = " select  SanPham.TenSP,HoaDonChiTiet.SoLuong,HoaDonChiTiet.DonGia from HoaDon "
+                    + " join HoaDonChiTiet on HoaDon.Id_HD = HoaDonChiTiet.Id_HD "
+                    + " join ChiTietSanPham on HoaDonChiTiet.Id_CTSP = ChiTietSanPham.Id_SPCT "
+                    + " join SanPham on ChiTietSanPham.Id_SP = SanPham.Id_SP "
+                    + " where  HoaDonChiTiet.Id_HD = ? ";
+            PreparedStatement pre = con.prepareStatement(sql);
+            pre.setInt(1, index);
+            ResultSet rs = pre.executeQuery();
+            while (rs.next()) {
+                CTSP ct = new CTSP();
+                ct.setTenSanPham(rs.getString("TenSP"));
+                ct.setSoLuongTon(rs.getInt("SoLuong"));
+                ct.setDonGia(rs.getFloat("DonGia"));
+                listSPInHoaDon.add(ct);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return listSPInHoaDon;
+    }
 }

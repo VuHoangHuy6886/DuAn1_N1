@@ -67,7 +67,7 @@ public class ViewMain extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        jPanel1.setPreferredSize(new java.awt.Dimension(1200, 800));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1300, 800));
         jPanel1.setRequestFocusEnabled(false);
         jPanel1.setVerifyInputWhenFocusTarget(false);
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -310,9 +310,10 @@ public class ViewMain extends javax.swing.JFrame {
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         desktop.setBackground(new java.awt.Color(255, 204, 204));
-        desktop.setPreferredSize(new java.awt.Dimension(1000, 800));
+        desktop.setPreferredSize(new java.awt.Dimension(1100, 800));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setPreferredSize(new java.awt.Dimension(1100, 800));
 
         jLabel11.setFont(new java.awt.Font("Times New Roman", 1, 40)); // NOI18N
         jLabel11.setText("Giao Diện Desktop");
@@ -322,9 +323,9 @@ public class ViewMain extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(343, Short.MAX_VALUE)
+                .addContainerGap(394, Short.MAX_VALUE)
                 .addComponent(jLabel11)
-                .addGap(335, 335, 335))
+                .addGap(384, 384, 384))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -347,7 +348,7 @@ public class ViewMain extends javax.swing.JFrame {
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jPanel1.add(desktop, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 0, 1000, 800));
+        jPanel1.add(desktop, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 0, -1, 800));
 
         jMenu1.setText("Đăng Xuất ");
         jMenuBar1.add(jMenu1);
@@ -399,13 +400,13 @@ public class ViewMain extends javax.swing.JFrame {
     }//GEN-LAST:event_menu2MousePressed
 
     private void menu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menu1MouseClicked
-        BanHang bh = new BanHang();
-        desktop.removeAll();
-        desktop.add(bh).setVisible(true);
+
     }//GEN-LAST:event_menu1MouseClicked
 
     private void menu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menu2MouseClicked
-
+        BanHang bh = new BanHang();
+        desktop.removeAll();
+        desktop.add(bh).setVisible(true);
     }//GEN-LAST:event_menu2MouseClicked
 
     private void menu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menu3MouseClicked

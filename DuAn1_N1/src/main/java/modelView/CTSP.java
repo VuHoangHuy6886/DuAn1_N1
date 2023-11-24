@@ -169,4 +169,7 @@ public class CTSP {
         this.anh = anh;
     }
 
+    public float thanhTien() {
+        return donGia * soLuongTon;
+    }
 }
