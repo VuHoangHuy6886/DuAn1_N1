@@ -1,0 +1,115 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package controler;
+
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+import model.HoaDon;
+import modelView.HoaDonView;
+import repository.CrudfullTable;
+import view.ViewLogin;
+
+/**
+ *
+ * @author vuhoa
+ */
+public class HoaDonServiceImpl {
+    
+    public List<HoaDon> listAll() {
+        List<HoaDon> listHoaDon = new ArrayList<>();
+        try (Connection con = Database.JdbcUtil.getConnection()) {
+            String sql = " SELECT * FROM HoaDon ORDER BY NgayTao DESC ";
+            PreparedStatement pre = con.prepareStatement(sql);
+            ResultSet rs = pre.executeQuery();
+            while (rs.next()) {
+                HoaDon hd = new HoaDon();
+                hd.setIdHD(rs.getInt("Id_HD"));
+                hd.setMaHD(rs.getString("MaHD"));
+                hd.setNgayTao(rs.getDate("NgayTao"));
+                hd.setTrangThai(rs.getString("TrangThai"));
+                hd.setId_KhachHang(rs.getInt("Id_KH"));
+                hd.setId_VouCher(rs.getInt("Id_VouCher"));
+                hd.setId_NhanVien(rs.getInt("ID_NV"));
+                hd.setTongTien(rs.getFloat("TongTienHang"));
+                listHoaDon.add(hd);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return listHoaDon;
+    }
+    
+    public String them() {
+        try (Connection con = Database.JdbcUtil.getConnection()) {
+            String sql = " insert into HoaDon(NgayTao,TrangThai,ID_NV)values (?,?,?) ";
+            PreparedStatement pre = con.prepareStatement(sql);
+            String trangThai = "Chờ thanh toán";
+            // ngày java util
+            java.util.Date ngayHienTai = new java.util.Date();
+            java.sql.Date ngayTao = new java.sql.Date(ngayHienTai.getTime());
+            pre.setDate(1, ngayTao);
+            pre.setString(2, trangThai);
+            pre.setInt(3, ViewLogin.idNhanVienKhiDangNhap);
+            pre.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "Tạo hóa đơn thành công !";
+    }
+    
+    public List<HoaDonView> showDanhSachSanPhamInHoaDon(int index) {
+        List<HoaDonView> listSPInHD = new ArrayList<>();
+        try (Connection con = Database.JdbcUtil.getConnection()) {
+            String sql = " select  SanPham.TenSP,HoaDonChiTiet.SoLuong,HoaDonChiTiet.DonGia from HoaDon "
+                    + " join HoaDonChiTiet on HoaDon.Id_HD = HoaDonChiTiet.Id_HD "
+                    + " join ChiTietSanPham on HoaDonChiTiet.Id_CTSP = ChiTietSanPham.Id_SPCT "
+                    + " join SanPham on ChiTietSanPham.Id_SP = SanPham.Id_SP "
+                    + " where  HoaDonChiTiet.Id_HD = ? ";
+            PreparedStatement pre = con.prepareStatement(sql);
+            pre.setInt(1, index);
+            ResultSet rs = pre.executeQuery();
+            while (rs.next()) {
+                HoaDonView hd = new HoaDonView();
+                hd.setTenSanPham(rs.getString("TenSP"));
+                hd.setSoLuong(rs.getInt("SoLuong"));
+                hd.setDonGia(rs.getFloat("DonGia"));
+                listSPInHD.add(hd);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return listSPInHD;
+    }
+    
+    public String updateTrangThaiHoaDon(HoaDon hd) {
+        try (Connection con = Database.JdbcUtil.getConnection()) {
+            String sql = " UPDATE HoaDon set NgayTao = ? , TrangThai = ? ,TongTienHang = ? ,Id_KH = ?,Id_VouCher = ? WHERE  Id_HD = ? ";
+            PreparedStatement pre = con.prepareStatement(sql);
+            pre.setDate(1, hd.getNgayTao());
+            pre.setString(2, hd.getTrangThai());
+            pre.setFloat(3, hd.getTongTien());
+            if (hd.getId_KhachHang() != 0) {
+                pre.setInt(4, hd.getId_KhachHang());
+            } else {
+                pre.setString(4, null);
+            }
+            if (hd.getId_VouCher() != 0) {
+                pre.setInt(5, hd.getId_VouCher());
+            } else {
+                pre.setString(5, null);
+            }
+            pre.setInt(6, view.BanHang.idHD);
+            pre.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "Done";
+    }
+}
